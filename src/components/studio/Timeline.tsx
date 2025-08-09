@@ -191,28 +191,19 @@ export const Timeline: React.FC<TimelineProps> = ({
 
                   {/* Content */}
                   {item.type === 'media' && 'url' in item.data ? (
-                    <div className="flex flex-col items-center text-center relative w-full h-full">
-                      {/* Media thumbnail */}
-                      <div className="w-full h-8 mb-1 rounded overflow-hidden bg-muted">
-                        <img 
-                          src={item.data.url} 
-                          alt={item.data.name}
-                          className="w-full h-full object-cover"
-                          onError={(e) => {
-                            e.currentTarget.style.display = 'none';
-                            e.currentTarget.nextElementSibling?.classList.remove('hidden');
-                          }}
-                        />
-                        <div className="hidden w-full h-full flex items-center justify-center">
-                          {getItemIcon(item)}
-                        </div>
+                    <div className="absolute inset-0 rounded-lg overflow-hidden">
+                      <img 
+                        src={item.data.url} 
+                        alt={item.data.name}
+                        className="w-full h-full object-cover"
+                        onError={(e) => {
+                          e.currentTarget.style.display = 'none';
+                          e.currentTarget.nextElementSibling?.classList.remove('hidden');
+                        }}
+                      />
+                      <div className="hidden w-full h-full flex items-center justify-center bg-muted">
+                        {getItemIcon(item)}
                       </div>
-                      <span className="text-xs truncate max-w-16">
-                        {getItemName(item)}
-                      </span>
-                      <span className="text-xs text-muted-foreground">
-                        {item.duration}s
-                      </span>
                     </div>
                   ) : (
                     <div className="flex flex-col items-center text-center">
