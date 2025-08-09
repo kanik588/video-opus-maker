@@ -2,41 +2,62 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
-*/
+/* Video Studio Design System - Dark theme with purple accents */
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    /* Studio dark theme */
+    --background: 220 13% 9%;
+    --foreground: 220 14% 96%;
 
-    --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    --card: 220 13% 11%;
+    --card-foreground: 220 14% 96%;
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    --popover: 220 13% 11%;
+    --popover-foreground: 220 14% 96%;
 
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
+    /* Purple accent for video editing */
+    --primary: 262 52% 47%;
+    --primary-foreground: 220 14% 96%;
+    --primary-glow: 262 52% 55%;
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    --secondary: 220 13% 13%;
+    --secondary-foreground: 220 14% 96%;
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    --muted: 220 13% 13%;
+    --muted-foreground: 220 9% 46%;
 
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    --accent: 220 13% 15%;
+    --accent-foreground: 220 14% 96%;
 
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 220 14% 96%;
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    --border: 220 13% 18%;
+    --input: 220 13% 15%;
+    --ring: 262 52% 47%;
 
-    --radius: 0.5rem;
+    /* Studio specific colors */
+    --studio-panel: 220 13% 11%;
+    --studio-panel-border: 220 13% 18%;
+    --studio-timeline: 220 13% 8%;
+    --studio-selected: 262 52% 47%;
+    --studio-hover: 220 13% 15%;
+    --studio-drop-zone: 262 52% 47%;
+    --studio-drop-zone-active: 262 52% 55%;
+
+    /* Gradients for beautiful effects */
+    --gradient-primary: linear-gradient(135deg, hsl(262 52% 47%), hsl(262 52% 55%));
+    --gradient-studio: linear-gradient(180deg, hsl(220 13% 11%), hsl(220 13% 9%));
+
+    /* Shadows for depth */
+    --shadow-studio: 0 10px 30px -10px hsl(262 52% 47% / 0.3);
+    --shadow-panel: 0 4px 12px -4px hsl(220 13% 4% / 0.5);
+
+    /* Animations */
+    --transition-studio: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+
+    --radius: 0.75rem;
 
     --sidebar-background: 0 0% 98%;
 
@@ -55,42 +76,35 @@ All colors MUST be HSL.
     --sidebar-ring: 217.2 91.2% 59.8%;
   }
 
-  .dark {
-    --background: 222.2 84% 4.9%;
-    --foreground: 210 40% 98%;
-
-    --card: 222.2 84% 4.9%;
-    --card-foreground: 210 40% 98%;
-
-    --popover: 222.2 84% 4.9%;
-    --popover-foreground: 210 40% 98%;
-
-    --primary: 210 40% 98%;
-    --primary-foreground: 222.2 47.4% 11.2%;
-
-    --secondary: 217.2 32.6% 17.5%;
-    --secondary-foreground: 210 40% 98%;
-
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
-
-    --accent: 217.2 32.6% 17.5%;
-    --accent-foreground: 210 40% 98%;
-
-    --destructive: 0 62.8% 30.6%;
+  /* Light mode overrides (keeping dark as default for studio) */
+  .light {
+    --background: 0 0% 100%;
+    --foreground: 222.2 84% 4.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 84% 4.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 84% 4.9%;
+    --primary: 262 52% 47%;
+    --primary-foreground: 210 40% 98%;
+    --secondary: 210 40% 96.1%;
+    --secondary-foreground: 222.2 47.4% 11.2%;
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+    --accent: 210 40% 96.1%;
+    --accent-foreground: 222.2 47.4% 11.2%;
+    --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 210 40% 98%;
-
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 212.7 26.8% 83.9%;
-    --sidebar-background: 240 5.9% 10%;
-    --sidebar-foreground: 240 4.8% 95.9%;
-    --sidebar-primary: 224.3 76.3% 48%;
-    --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 240 3.7% 15.9%;
-    --sidebar-accent-foreground: 240 4.8% 95.9%;
-    --sidebar-border: 240 3.7% 15.9%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 262 52% 47%;
+    
+    --studio-panel: 0 0% 100%;
+    --studio-panel-border: 214.3 31.8% 91.4%;
+    --studio-timeline: 210 40% 98%;
+    --studio-selected: 262 52% 47%;
+    --studio-hover: 210 40% 96.1%;
+    --studio-drop-zone: 262 52% 47%;
+    --studio-drop-zone-active: 262 52% 55%;
   }
 }
 
@@ -101,5 +115,51 @@ All colors MUST be HSL.
 
   body {
     @apply bg-background text-foreground;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', sans-serif;
+  }
+
+  /* Studio specific styles */
+  .studio-panel {
+    @apply bg-studio-panel border border-studio-panel-border rounded-lg;
+    box-shadow: var(--shadow-panel);
+  }
+
+  .studio-selected {
+    @apply border-studio-selected;
+    box-shadow: 0 0 0 2px hsl(var(--studio-selected) / 0.3);
+  }
+
+  .studio-drop-zone {
+    transition: var(--transition-studio);
+  }
+
+  .studio-drop-zone.drag-over {
+    @apply border-studio-drop-zone-active;
+    background: hsl(var(--studio-drop-zone) / 0.1);
+    box-shadow: inset 0 0 0 2px hsl(var(--studio-drop-zone-active) / 0.5);
+  }
+
+  /* Smooth animations */
+  .studio-animate {
+    transition: var(--transition-studio);
+  }
+
+  /* Custom scrollbars for studio */
+  .studio-scrollbar::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+
+  .studio-scrollbar::-webkit-scrollbar-track {
+    background: hsl(var(--muted));
+  }
+
+  .studio-scrollbar::-webkit-scrollbar-thumb {
+    background: hsl(var(--muted-foreground) / 0.3);
+    border-radius: 4px;
+  }
+
+  .studio-scrollbar::-webkit-scrollbar-thumb:hover {
+    background: hsl(var(--muted-foreground) / 0.5);
   }
 }

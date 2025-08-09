@@ -26,7 +26,8 @@ export default {
 				foreground: 'hsl(var(--foreground))',
 				primary: {
 					DEFAULT: 'hsl(var(--primary))',
-					foreground: 'hsl(var(--primary-foreground))'
+					foreground: 'hsl(var(--primary-foreground))',
+					glow: 'hsl(var(--primary-glow))'
 				},
 				secondary: {
 					DEFAULT: 'hsl(var(--secondary))',
@@ -61,7 +62,22 @@ export default {
 					'accent-foreground': 'hsl(var(--sidebar-accent-foreground))',
 					border: 'hsl(var(--sidebar-border))',
 					ring: 'hsl(var(--sidebar-ring))'
-				}
+				},
+				'studio-panel': 'hsl(var(--studio-panel))',
+				'studio-panel-border': 'hsl(var(--studio-panel-border))',
+				'studio-timeline': 'hsl(var(--studio-timeline))',
+				'studio-selected': 'hsl(var(--studio-selected))',
+				'studio-hover': 'hsl(var(--studio-hover))',
+				'studio-drop-zone': 'hsl(var(--studio-drop-zone))',
+				'studio-drop-zone-active': 'hsl(var(--studio-drop-zone-active))'
+			},
+			backgroundImage: {
+				'gradient-primary': 'var(--gradient-primary)',
+				'gradient-studio': 'var(--gradient-studio)'
+			},
+			boxShadow: {
+				'studio': 'var(--shadow-studio)',
+				'panel': 'var(--shadow-panel)'
 			},
 			borderRadius: {
 				lg: 'var(--radius)',
