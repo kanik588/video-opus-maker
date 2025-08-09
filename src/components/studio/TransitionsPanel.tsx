@@ -33,14 +33,14 @@ export const TransitionsPanel: React.FC<TransitionsPanelProps> = ({
               key={transition.id}
               draggable
               onDragStart={(e) => handleDragStart(e, transition)}
-              className="studio-panel p-2 cursor-move hover:shadow-studio transition-all studio-animate group text-center"
+              className="bg-primary/20 border-2 border-primary/40 hover:border-primary hover:bg-primary/30 p-3 cursor-move hover:shadow-studio transition-all studio-animate group text-center rounded-lg"
               title={`${transition.name} (${transition.duration}s)`}
             >
-              <div className="text-2xl mb-1">{transition.preview}</div>
-              <div className="text-xs text-foreground group-hover:text-primary transition-colors">
+              <div className="text-2xl mb-2 filter drop-shadow-sm">{transition.preview}</div>
+              <div className="text-xs font-medium text-primary-foreground group-hover:text-foreground transition-colors">
                 {transition.name}
               </div>
-              <div className="text-xs text-muted-foreground">
+              <div className="text-xs text-primary-foreground/70">
                 {transition.duration}s
               </div>
             </div>

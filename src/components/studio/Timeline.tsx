@@ -170,10 +170,10 @@ export const Timeline: React.FC<TimelineProps> = ({
                   onClick={() => handleItemClick(item)}
                   className={`
                     studio-panel p-3 min-w-24 h-16 cursor-pointer studio-animate
-                    flex flex-col items-center justify-center relative group
+                    flex flex-col items-center justify-center relative group overflow-hidden
                     ${selectedItem?.id === item.id ? 'studio-selected' : ''}
                     ${draggingIndex === index ? 'opacity-50' : ''}
-                    ${item.type === 'transition' ? 'bg-accent' : ''}
+                    ${item.type === 'transition' ? 'bg-primary/20 border-primary/40' : ''}
                   `}
                 >
                   {/* Drag handle */}
@@ -190,15 +190,41 @@ export const Timeline: React.FC<TimelineProps> = ({
                   </Button>
 
                   {/* Content */}
-                  <div className="flex flex-col items-center text-center">
-                    {getItemIcon(item)}
-                    <span className="text-xs mt-1 truncate max-w-16">
-                      {getItemName(item)}
-                    </span>
-                    <span className="text-xs text-muted-foreground">
-                      {item.duration}s
-                    </span>
-                  </div>
+                  {item.type === 'media' && 'url' in item.data ? (
+                    <div className="flex flex-col items-center text-center relative w-full h-full">
+                      {/* Media thumbnail */}
+                      <div className="w-full h-8 mb-1 rounded overflow-hidden bg-muted">
+                        <img 
+                          src={item.data.url} 
+                          alt={item.data.name}
+                          className="w-full h-full object-cover"
+                          onError={(e) => {
+                            e.currentTarget.style.display = 'none';
+                            e.currentTarget.nextElementSibling?.classList.remove('hidden');
+                          }}
+                        />
+                        <div className="hidden w-full h-full flex items-center justify-center">
+                          {getItemIcon(item)}
+                        </div>
+                      </div>
+                      <span className="text-xs truncate max-w-16">
+                        {getItemName(item)}
+                      </span>
+                      <span className="text-xs text-muted-foreground">
+                        {item.duration}s
+                      </span>
+                    </div>
+                  ) : (
+                    <div className="flex flex-col items-center text-center">
+                      {getItemIcon(item)}
+                      <span className="text-xs mt-1 truncate max-w-16">
+                        {getItemName(item)}
+                      </span>
+                      <span className="text-xs text-muted-foreground">
+                        {item.duration}s
+                      </span>
+                    </div>
+                  )}
                 </div>
 
                 {/* Drop zone between items */}
