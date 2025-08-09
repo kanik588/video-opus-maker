@@ -38,33 +38,20 @@ export const MediaLibrary: React.FC<MediaLibraryProps> = ({
     <div className="h-full flex flex-col">
       {/* Header */}
       <div className="p-4 border-b border-studio-panel-border">
-        <div className="flex items-center justify-between mb-3">
+        <div className="mb-3">
           <h2 className="font-semibold text-foreground">Media Library</h2>
-          <Button
-            size="sm"
-            onClick={() => fileInputRef.current?.click()}
-            className="bg-primary hover:bg-primary-glow"
-          >
-            <Plus className="w-4 h-4 mr-1" />
-            Add
-          </Button>
         </div>
         
         {/* Upload Zone */}
         <div
           onDrop={handleDrop}
           onDragOver={handleDragOver}
-          className="studio-drop-zone border-2 border-dashed border-studio-panel-border rounded-lg p-4 text-center hover:border-studio-drop-zone transition-colors"
+          onClick={() => fileInputRef.current?.click()}
+          className="studio-drop-zone border-2 border-dashed border-studio-panel-border rounded-lg p-4 text-center hover:border-studio-drop-zone transition-colors cursor-pointer"
         >
           <Upload className="w-6 h-6 mx-auto mb-2 text-muted-foreground" />
           <p className="text-sm text-muted-foreground">
-            Drop files here or{' '}
-            <button
-              onClick={() => fileInputRef.current?.click()}
-              className="text-primary hover:text-primary-glow underline"
-            >
-              browse
-            </button>
+            Drop files here or click to browse
           </p>
         </div>
       </div>
