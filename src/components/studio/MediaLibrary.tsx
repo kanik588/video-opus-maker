@@ -65,7 +65,7 @@ export const MediaLibrary: React.FC<MediaLibraryProps> = ({
             <p className="text-xs mt-1">Upload images or videos to get started</p>
           </div>
         ) : (
-          <div className="grid grid-cols-2 gap-3">
+          <div className="grid grid-cols-3 gap-2">
             {items.map((item) => (
               <div
                 key={item.id}
@@ -74,7 +74,7 @@ export const MediaLibrary: React.FC<MediaLibraryProps> = ({
                 className="studio-panel p-2 cursor-move hover:shadow-studio transition-all studio-animate group"
                 title={item.name}
               >
-                <div className="aspect-square rounded-md overflow-hidden bg-muted mb-2 relative">
+                <div className="aspect-square rounded-md overflow-hidden bg-muted relative">
                   {item.type === 'image' ? (
                     <img
                       src={item.thumbnail}
@@ -103,10 +103,6 @@ export const MediaLibrary: React.FC<MediaLibraryProps> = ({
                     </div>
                   )}
                 </div>
-                
-                <p className="text-xs text-foreground truncate group-hover:text-primary transition-colors">
-                  {item.name}
-                </p>
               </div>
             ))}
           </div>
